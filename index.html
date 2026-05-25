@@ -1,0 +1,754 @@
+<!DOCTYPE html>
+<html lang="sk">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Stolárstvo Drevont | Nábytok na mieru</title>
+  <meta name="description" content="Stolárstvo Drevont – Nábytok a stolárske služby na mieru." />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;700;900&family=Jost:wght@300;400;500&display=swap" rel="stylesheet" />
+  <style>
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+    :root {
+      --wood:    #8B5E3C;
+      --wood-dk: #5C3A1E;
+      --cream:   #F5F0E8;
+      --bark:    #2C1A0E;
+      --sand:    #D4B896;
+      --white:   #FFFDF9;
+      --accent:  #C8873A;
+    }
+
+    html { scroll-behavior: smooth; }
+
+    body {
+      font-family: 'Jost', sans-serif;
+      background: var(--white);
+      color: var(--bark);
+      overflow-x: hidden;
+    }
+
+    /* ── NAV ── */
+    nav {
+      position: fixed; top: 0; left: 0; right: 0; z-index: 100;
+      display: flex; align-items: center; justify-content: space-between;
+      padding: 1.2rem 4rem;
+      background: rgba(255,253,249,0.92);
+      backdrop-filter: blur(8px);
+      border-bottom: 1px solid rgba(139,94,60,0.12);
+      animation: fadeDown .6s ease both;
+      align-items: center;
+      justify-content: space-between;
+    }
+
+   
+
+    .nav-logo span { color: var(--accent); }
+
+    nav ul {
+      display: flex; gap: 2.4rem; list-style: none;
+    }
+
+    nav a {
+      font-size: .88rem; font-weight: 500; letter-spacing: .08em;
+      text-transform: uppercase; color: var(--bark);
+      text-decoration: none; position: relative; padding-bottom: 3px;
+    }
+
+    nav a::after {
+      content: ''; position: absolute; left: 0; bottom: 0;
+      width: 0; height: 1.5px; background: var(--accent);
+      transition: width .3s ease;
+    }
+    nav a:hover::after { width: 100%; }
+
+    .nav-cta {
+      background: var(--wood-dk); color: var(--cream) !important;
+      padding: .55rem 1.4rem; border-radius: 2px;
+      transition: background .25s ease;
+    }
+    .nav-cta:hover { background: var(--accent) !important; }
+    .nav-cta::after { display: none !important; }
+
+    /* ── HERO ── */
+    #hero {
+      min-height: 100vh;
+      display: grid; grid-template-columns: 1fr;
+      padding-top: 72px;
+      background-image: url('pozadie1.jpeg');
+      background-size: cover;
+      background-position: center; 
+    }
+
+    .hero-text {
+      display: flex; flex-direction: column; justify-content: center;
+      padding: 6rem 4rem 6rem 6rem;
+      animation: fadeLeft .9s .2s ease both;
+    }
+
+    .hero-tag {
+      display: none;
+      font-size: .75rem; letter-spacing: .18em; text-transform: uppercase;
+      color: var(--accent); font-weight: 500;
+      border-left: 2px solid var(--accent); padding-left: .75rem;
+      margin-bottom: 1.6rem;
+    }
+
+    .hero-text h1 {
+      text-shadow: 0px 0px 8px rgba(255, 255, 255, 0.9);
+      text-align: center;
+      font-family: 'Jost', serif;
+      font-size: clamp(2.6rem, 4.5vw, 4rem);
+      font-weight: 900; line-height: 1.1;
+      color: var(--bark); margin-bottom: 1.6rem;
+      backdrop-filter: blur(4px);
+    }
+
+    
+
+    .hero-text p {
+      font-size: 1.05rem; line-height: 1.8;
+      color: #6b4f38; max-width: 38ch; margin-bottom: 2.4rem;
+      font-weight: 300;
+    }
+
+    .hero-btns { display: flex; gap: 1rem; flex-wrap: wrap; align-items: center }
+
+    .btn-primary {
+      background: var(--wood-dk); color: var(--cream);
+      padding: .85rem 2rem; font-size: .9rem; font-weight: 500;
+      letter-spacing: .06em; text-transform: uppercase;
+      text-decoration: none; border-radius: 2px;
+      transition: background .25s, transform .2s;
+      align items: center;
+    }
+    .btn-primary:hover { background: var(--accent); transform: translateY(-2px); }
+
+    .btn-outline {
+      border: 1.5px solid var(--wood); color: var(--wood-dk);
+      padding: .85rem 2rem; font-size: .9rem; font-weight: 500;
+      letter-spacing: .06em; text-transform: uppercase;
+      text-decoration: none; border-radius: 2px;
+      transition: all .25s;
+    }
+    .btn-outline:hover { background: var(--wood-dk); color: var(--cream); }
+
+    .hero-image {
+      position: relative; overflow: hidden;
+      animation: fadeRight .9s .3s ease both;
+    }
+
+      .logo_velke {
+  	display: flex;
+  	justify-content: center;
+  	align-items: center;
+	 }
+
+	.logo_velke img {
+  	max-width: 1000px;
+ 	 width: 100%;
+  	height: auto;
+         }
+
+    .hero-image img {
+      width: 100%; height: 100%; object-fit: cover;
+      filter: brightness(.88) saturate(.9);
+    }
+
+    .hero-image::after {
+      content: '';
+      position: absolute; inset: 0;
+      background: linear-gradient(135deg, rgba(92,58,30,.18) 0%, transparent 60%);
+    }
+
+    .hero-badge {
+      position: absolute; bottom: 2.5rem; left: -1.5rem;
+      background: var(--cream); padding: 1.2rem 1.6rem;
+      border-left: 3px solid var(--accent);
+      box-shadow: 4px 6px 24px rgba(44,26,14,.14);
+      z-index: 2;
+      animation: fadeBadge .8s .8s ease both;
+    }
+    .hero-badge strong {
+      display: block; font-family: 'Playfair Display', serif;
+      font-size: 1.6rem; font-weight: 900; color: var(--wood-dk);
+    }
+    .hero-badge span { font-size: .78rem; letter-spacing: .1em; text-transform: uppercase; color: #8a6a52; }
+
+    /* ── ABOUT ── */
+    #onas {
+      background: var(--cream);
+      padding: 7rem 6rem;
+      display: grid; grid-template-columns: 1fr 1fr; gap: 6rem;
+      align-items: center;
+    }
+
+    .about-img-wrap {
+      position: relative;
+    }
+
+    .about-img-wrap img {
+      width: 100%; border-radius: 2px;
+      box-shadow: 8px 12px 40px rgba(44,26,14,.15);
+      display: block;
+    }
+
+    .about-img-wrap::before {
+      content: '';
+      position: absolute; top: -1.5rem; left: -1.5rem;
+      width: 60%; height: 60%;
+      border: 2px solid var(--sand);
+      border-radius: 2px; z-index: -1;
+    }
+
+    .section-tag {
+      display: none;
+      font-size: .75rem; letter-spacing: .18em; text-transform: uppercase;
+      color: var(--accent); font-weight: 500;
+      border-left: 2px solid var(--accent); padding-left: .75rem;
+      margin-bottom: 1.2rem; display: inline-block;
+    }
+
+    .section-title {
+      font-family: 'Playfair Display', serif;
+      font-size: clamp(1.8rem, 2.8vw, 2.6rem);
+      font-weight: 700; line-height: 1.2;
+      color: var(--cream); margin-bottom: 1.4rem;
+    }
+
+    .about-text p {
+      font-size: 1rem; line-height: 1.85; color: #6b4f38;
+      font-weight: 300; margin-bottom: 1rem;
+    }
+
+    .about-stats {
+      display: flex; gap: 2.5rem; margin-top: 2rem;
+    }
+
+    .stat strong {
+      display: block; font-family: 'Playfair Display', serif;
+      font-size: 2rem; font-weight: 900; color: var(--wood-dk);
+    }
+    .stat span { font-size: .82rem; letter-spacing: .06em; text-transform: uppercase; color: #8a6a52; }
+
+    /* ── SERVICES ── */
+    #sluzby {
+      min-height: 100vh;
+      display: grid; grid-template-columns: 1fr;
+      padding-top: 72px;
+      background-image: url('pozadie2.jpg');
+      background-size: cover;
+      background-position: center;
+      padding: 7rem 6rem;
+      
+    }
+
+    .section-header {
+      text-align: center; max-width: 52ch; margin: 0 auto 4rem; text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.8);
+    }
+    .section-header .section-tag { border-left: none; border-bottom: 2px solid var(--accent); padding-left: 0; padding-bottom: 4px; }
+
+    .services-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 2rem;
+    }
+
+    .service-card {
+      background: var(--cream);
+      padding: 2.4rem 2rem;
+      border-radius: 2px;
+      border-bottom: 3px solid transparent;
+      transition: border-color .3s, transform .3s, box-shadow .3s;
+      position: relative; overflow: hidden;
+    }
+
+    .service-card::before {
+      content: '';
+      position: absolute; top: 0; left: 0; right: 0; height: 3px;
+      background: var(--accent); transform: scaleX(0); transform-origin: left;
+      transition: transform .35s ease;
+    }
+
+    .service-card:hover::before { transform: scaleX(1); }
+    .service-card:hover { transform: translateY(-4px); box-shadow: 0 12px 36px rgba(44,26,14,.1); }
+
+    .service-icon {
+      font-size: 2.2rem; margin-bottom: 1.2rem;
+    }
+
+    .service-card h3 {
+      font-family: 'Playfair Display', serif;
+      font-size: 1.25rem; font-weight: 700;
+      color: var(--bark); margin-bottom: .7rem;
+    }
+
+    .service-card p {
+      font-size: .92rem; line-height: 1.75; color: #6b4f38; font-weight: 300;
+    }
+
+    /* ── GALLERY ── */
+    #galeria {
+      padding: 7rem 6rem;
+      background: var(--bark);
+    }
+
+    #galeria .section-header .section-tag { color: var(--sand); border-color: var(--sand); text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.8); }
+    #galeria .section-title { color: var(--cream); }
+
+    .gallery-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      grid-template-rows: auto auto;
+      gap: 1.2rem;
+    }
+
+    .gallery-grid .g-big {
+      grid-column: span 2;
+      grid-row: span 2;
+    }
+
+    .gallery-item {
+      overflow: hidden; border-radius: 2px; position: relative;
+    }
+
+    .gallery-item img {
+      width: 100%; height: 100%; object-fit: cover;
+      transition: transform .5s ease, filter .4s;
+      filter: brightness(.85) saturate(.85);
+      display: block;
+      min-height: 200px;
+    }
+
+    .gallery-item:hover img { transform: scale(1.05); filter: brightness(.95) saturate(1); }
+
+    .gallery-item .overlay {
+      position: absolute; inset: 0;
+      background: linear-gradient(to top, rgba(44,26,14,.5) 0%, transparent 50%);
+      opacity: 0; transition: opacity .35s;
+      display: flex; align-items: flex-end; padding: 1.2rem;
+    }
+    .gallery-item:hover .overlay { opacity: 1; }
+    .overlay span { color: var(--cream); font-size: .82rem; letter-spacing: .08em; text-transform: uppercase; }
+
+    /* ── CONTACT ── */
+    #kontakt {
+      padding: 7rem 6rem;
+      background: var(--cream);
+      display: grid; grid-template-columns: 1fr 1fr; gap: 6rem; align-items: start;
+    }
+
+    .contact-info .section-title { margin-bottom: 1rem; }
+    .contact-info > p { font-size: 1rem; line-height: 1.8; color: #6b4f38; font-weight: 300; margin-bottom: 2rem; }
+
+    .contact-item {
+      display: flex; align-items: center; gap: 1rem;
+      margin-bottom: 1.2rem;
+    }
+
+    .contact-item .ci-icon {
+      width: 44px; height: 44px; border-radius: 50%;
+      background: var(--wood-dk); color: var(--cream);
+      display: flex; align-items: center; justify-content: center;
+      font-size: 1.1rem; flex-shrink: 0;
+    }
+
+    .contact-item div strong { display: block; font-size: .8rem; letter-spacing: .08em; text-transform: uppercase; color: #8a6a52; }
+    .contact-item div span { font-size: 1rem; color: var(--bark); }
+
+    .contact-form {
+      background: var(--white);
+      padding: 2.8rem; border-radius: 2px;
+      box-shadow: 0 4px 28px rgba(44,26,14,.08);
+    }
+
+    .contact-form h3 {
+      font-family: 'Playfair Display', serif; font-size: 1.4rem;
+      color: var(--bark); margin-bottom: 1.6rem;
+    }
+
+    .form-row { display: grid; grid-template-columns: 1fr 1fr; gap: 1rem; }
+
+    .form-group { display: flex; flex-direction: column; margin-bottom: 1.2rem; }
+    .form-group label { font-size: .78rem; letter-spacing: .08em; text-transform: uppercase; color: #8a6a52; margin-bottom: .4rem; }
+    .form-group input, .form-group textarea, .form-group select {
+      border: 1.5px solid #d4c4b2; background: var(--cream);
+      padding: .75rem 1rem; border-radius: 2px; font-family: 'Jost', sans-serif;
+      font-size: .95rem; color: var(--bark);
+      transition: border-color .25s;
+      outline: none;
+    }
+    .form-group input:focus, .form-group textarea:focus, .form-group select:focus {
+      border-color: var(--wood);
+    }
+    .form-group textarea { resize: vertical; min-height: 110px; }
+
+    .btn-submit {
+      width: 100%; background: var(--wood-dk); color: var(--cream);
+      border: none; padding: 1rem; font-family: 'Jost', sans-serif;
+      font-size: .9rem; font-weight: 500; letter-spacing: .08em;
+      text-transform: uppercase; cursor: pointer; border-radius: 2px;
+      transition: background .25s, transform .2s;
+    }
+    .btn-submit:hover { background: var(--accent); transform: translateY(-2px); }
+
+    /* ── MAP ── */
+    #mapa {
+      background: var(--white);
+    }
+
+    .map-header {
+      text-align: center;
+      padding: 4rem 6rem 2.5rem;
+    }
+
+    .map-wrapper {
+      position: relative;
+      width: 100%;
+      height: 460px;
+      overflow: hidden;
+    }
+
+    .map-wrapper iframe {
+      width: 100%;
+      height: 100%;
+      border: none;
+      display: block;
+      filter: saturate(.88) contrast(1.04);
+    }
+
+    .map-overlay-bar {
+      background: var(--bark);
+      padding: 1.4rem 6rem;
+      display: flex;
+      align-items: center;
+      gap: 3rem;
+      flex-wrap: wrap;
+    }
+
+    .map-detail {
+      display: flex;
+      align-items: center;
+      gap: .75rem;
+      color: var(--sand);
+      font-size: .88rem;
+    }
+
+    .map-detail .md-icon {
+      width: 34px; height: 34px;
+      background: rgba(255,255,255,.08);
+      border-radius: 50%;
+      display: flex; align-items: center; justify-content: center;
+      font-size: 1rem;
+      flex-shrink: 0;
+    }
+
+    .map-detail strong {
+      display: block;
+      color: var(--cream);
+      font-size: .95rem;
+      font-weight: 500;
+    }
+
+    .map-directions-btn {
+      margin-left: auto;
+      background: var(--accent);
+      color: var(--cream);
+      padding: .65rem 1.6rem;
+      border-radius: 2px;
+      text-decoration: none;
+      font-size: .82rem;
+      font-weight: 500;
+      letter-spacing: .08em;
+      text-transform: uppercase;
+      transition: background .25s, transform .2s;
+      white-space: nowrap;
+    }
+    .map-directions-btn:hover { background: var(--wood); transform: translateY(-2px); }
+
+    /* ── FOOTER ── */
+    footer {
+      background: var(--bark); color: var(--sand);
+      padding: 2.5rem 6rem;
+      display: flex; justify-content: space-between; align-items: center;
+      flex-wrap: wrap; gap: 1rem;
+    }
+
+    footer .f-logo {
+      font-family: 'Playfair Display', serif;
+      font-size: 1.1rem; font-weight: 900; color: var(--cream);
+    }
+    footer .f-logo span { color: var(--accent); }
+
+   .f-logo img {
+    height: 100px;   /* veľkosť loga */
+    width: auto;
+    display: block;
+    }
+
+    footer p { font-size: .82rem; }
+
+    footer nav { border: none; position: static; padding: 0; background: none; backdrop-filter: none; }
+    footer nav ul { gap: 1.6rem; }
+    footer nav a { font-size: .82rem; color: var(--sand); }
+    footer nav a::after { background: var(--accent); }
+
+
+    /* LOGO */
+    .nav-logo img {
+  	height: 120px;   /* veľkosť loga */
+  	width: auto;
+  	display: block;
+	}
+
+    /* ── SCROLL REVEAL ── */
+    .reveal {
+      opacity: 0; transform: translateY(30px);
+      transition: opacity .7s ease, transform .7s ease;
+    }
+    .reveal.visible { opacity: 1; transform: none; }
+
+    /* ── KEYFRAMES ── */
+    @keyframes fadeDown { from { opacity:0; transform: translateY(-16px); } to { opacity:1; transform:none; } }
+    @keyframes fadeLeft { from { opacity:0; transform: translateX(-30px); } to { opacity:1; transform:none; } }
+    @keyframes fadeRight { from { opacity:0; transform: translateX(30px); } to { opacity:1; transform:none; } }
+    @keyframes fadeBadge { from { opacity:0; transform: translateX(-20px); } to { opacity:1; transform:none; } }
+
+    /* ── MOBILE ── */
+    @media (max-width: 900px) {
+      nav { padding: 1rem 1.5rem; }
+      nav ul { display: none; }
+
+      #hero { grid-template-columns: 1fr; min-height: auto; }
+      .hero-text { padding: 5rem 1.5rem 2.5rem; }
+      .hero-image { height: 55vw; }
+      .hero-badge { left: 1rem; bottom: 1rem; }
+
+      #onas, #kontakt { grid-template-columns: 1fr; padding: 4rem 1.5rem; gap: 3rem; }
+      #sluzby, #galeria { padding: 4rem 1.5rem; }
+
+      .services-grid { grid-template-columns: 1fr; }
+      .gallery-grid { grid-template-columns: 1fr 1fr; }
+      .gallery-grid .g-big { grid-column: span 2; grid-row: span 1; }
+
+      .map-header { padding: 3rem 1.5rem 2rem; }
+      .map-wrapper { height: 300px; }
+      .map-overlay-bar { padding: 1.2rem 1.5rem; gap: 1rem; }
+      .map-directions-btn { margin-left: 0; }
+
+      footer { padding: 2rem 1.5rem; flex-direction: column; text-align: center; }
+    }
+  </style>
+</head>
+<body>
+
+<!-- NAV -->
+<nav>
+  <a href="#" class="nav-logo">
+  <img src="img\drevontlogo.png" alt="Drevont logo">
+</a>
+  <ul>
+    <li><a href="#onas">O nás</a></li>
+    <li><a href="#sluzby">Služby</a></li>
+    <li><a href="#galeria">Galéria</a></li>
+    <li><a href="#kontakt" class="nav-cta">Kontakt</a></li>
+  </ul>
+</nav>
+
+
+
+<!-- PREDNA STRANA-->
+<section id="hero">
+  <div class="hero-text">
+    <span class="hero-tag">Ručná výroba · Kvalitné drevo</span>
+    <div class="logo_velke">
+    <img src="img\logo_velke.png" alt="logo">
+  </div>
+    <h1>Nábytok a stolárske služby na mieru</h1>
+  <div class="hero-image">
+    <div class="hero-badge">
+      <strong>15+</strong>
+      <span>rokov skúseností</span>
+    </div>
+  </div>
+</section>
+
+<!-- O NÁS -->
+<section id="onas">
+  <div class="about-img-wrap reveal">
+    <img src="https://images.unsplash.com/photo-1504917595217-d4dc5ebe6122?w=700&q=80" alt="Práca v dielni" />
+  </div>
+  <div class="about-text reveal">
+    <span class="section-tag">O nás</span>
+    <h2 class="section-title">Rodinná stolárska tradícia</h2>
+    <p>Sme firma s viac ako 30-ročnou tradíciou v oblasti stolárstva. Zaoberáme sa výrobou a úpravou stolárskych výrobkov na mieru z kvalitného dreva pre rôzne potreby našich zákazníkov.</p>
+    <div class="about-stats">
+      <div class="stat"><strong>30+</strong><span>Rokov praxe</span></div>
+      <div class="stat"><strong>400+</strong><span>Spokojných klientov</span></div>
+      <div class="stat"><strong>100%</strong><span>Na mieru</span></div>
+    </div>
+  </div>
+</section>
+
+<!-- SLUŽBY -->
+<section id="sluzby">
+  <div class="section-header reveal">
+    <span class="section-tag">Čo robíme</span>
+    <h2 class="section-title">Naše služby</h2>
+  </div>
+  <div class="services-grid">
+    <div class="service-card reveal">
+      <div class="service-icon">🪑</div>
+      <h3>Nábytok na mieru</h3>
+      <p>Stoly, stoličky, skrine, postele a ďalší nábytok presne podľa vašich predstáv a rozmerov priestoru.</p>
+    </div>
+    <div class="service-card reveal">
+      <div class="service-icon">🚪</div>
+      <h3>Dvere a okná</h3>
+      <p>Výroba a montáž drevených dverí a okenných rámy s dôrazom na tepelnú izoláciu a estetiku.</p>
+    </div>
+    <div class="service-card reveal">
+      <div class="service-icon">🪟</div>
+      <h3>Vstavané skrine</h3>
+      <p>Maximálne využitie každého kúta — vstavané riešenia prispôsobené presne tvaru vašej izby.</p>
+    </div>
+  </div>
+</section>
+
+<!-- GALÉRIA -->
+<section id="galeria">
+  <div class="section-header reveal">
+    <span class="section-tag">Naša práca</span>
+    <h2 class="section-title">Galéria</h2>
+  </div>
+  <div class="gallery-grid">
+    <div class="gallery-item g-big reveal">
+      <img src="https://images.unsplash.com/photo-1555041469-a586c61ea9bc?w=800&q=80" alt="Obývačková zostava" />
+      <div class="overlay"><span>Obývačková zostava</span></div>
+    </div>
+    <div class="gallery-item reveal">
+      <img src="https://images.unsplash.com/photo-1567538096630-e0c55bd6374c?w=500&q=80" alt="Kuchynská linka" />
+      <div class="overlay"><span>Kuchynská linka</span></div>
+    </div>
+    <div class="gallery-item reveal">
+      <img src="https://images.unsplash.com/photo-1586023492125-27b2c045efd7?w=500&q=80" alt="Drevená skriňa" />
+      <div class="overlay"><span>Skriňa na mieru</span></div>
+    </div>
+    <div class="gallery-item reveal">
+      <img src="https://images.unsplash.com/photo-1540574163026-643ea20ade25?w=500&q=80" alt="Jedálenský stôl" />
+      <div class="overlay"><span>Jedálenský stôl</span></div>
+    </div>
+    <div class="gallery-item reveal">
+      <img src="https://images.unsplash.com/photo-1493663284031-b7e3aefcae8e?w=500&q=80" alt="Detská izba" />
+      <div class="overlay"><span>Detská izba</span></div>
+    </div>
+  </div>
+</section>
+
+<!-- KONTAKT -->
+<section id="kontakt">
+  <div class="contact-info reveal">
+    <span class="section-tag">Kontakt</span>
+    <h2 class="section-title">Napíšte nám</h2>
+    <p>Radi vám pripravíme nezáväznú cenovú ponuku. Stačí nám povedať, čo potrebujete a my sa vám ozveme.</p>
+    <div class="contact-item">
+      <div class="ci-icon">📞</div>
+      <div><strong>Telefón</strong><span>+421 907 243 704</span></div>
+    </div>
+    <div class="contact-item">
+      <div class="ci-icon">✉️</div>
+      <div><strong>E-mail</strong><span>drevontbb@gmail.com</span></div>
+    </div>
+    <div class="contact-item">
+      <div class="ci-icon">📍</div>
+      <div><strong>Adresa</strong><span>Podlavická cesta 87, 974 09</span></div>
+    </div>
+    <div class="contact-item">
+      <div class="ci-icon">🕐</div>
+      <div><strong>Pracovný čas</strong><span>Po–Pi 8:00–17:00 (Prosím o kontakt dopredu nakoľko sa môžeme nachádzať mimo sídla z dôvodu merania alebo prípadnej montáže.)</span></div>
+    </div>
+  </div>
+</section>
+
+<!-- MAPA -->
+<section id="mapa">
+  <div class="map-header reveal">
+    <span class="section-tag" style="border-left: 2px solid var(--accent); padding-left: .75rem;">Kde nás nájdete</span>
+    <h2 class="section-title">Naša poloha</h2>
+  </div>
+  <div class="map-wrapper">
+    <iframe
+      src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d2638.4!2d19.1423!3d48.7163!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x4714d5b7e1e2c5f7%3A0x0!2sPodlavick%C3%A1+cesta+87%2C+974+09+Bansk%C3%A1+Bystrica!5e0!3m2!1ssk!2ssk!4v1700000000000!5m2!1ssk!2ssk&q=Podlavická+cesta+87,+974+09+Banská+Bystrica,+Slovensko"
+      allowfullscreen=""
+      loading="lazy"
+      referrerpolicy="no-referrer-when-downgrade"
+      title="Poloha Stolárstvo Novák – Podlavická cesta 87, Banská Bystrica">
+    </iframe>
+  </div>
+  <div class="map-overlay-bar">
+    <div class="map-detail">
+      <div class="md-icon">📍</div>
+      <div>
+        <strong>Podlavická cesta 87</strong>
+        974 09 Banská Bystrica, Slovensko
+      </div>
+    </div>
+    <div class="map-detail">
+      <div class="md-icon">🕐</div>
+      <div>
+        <strong>Pracovný čas</strong>
+        Po–Pi 8:00–17:00
+      </div>
+    </div>
+    <div class="map-detail">
+      <div class="md-icon">📞</div>
+      <div>
+        <strong>Telefón</strong>
+        +421 907 243 704
+      </div>
+    </div>
+    <a
+      href="https://www.google.com/maps/dir/?api=1&destination=Podlavická+cesta+87,+974+09+Banská+Bystrica,+Slovensko"
+      target="_blank"
+      rel="noopener"
+      class="map-directions-btn">
+      Navigovať →
+    </a>
+  </div>
+</section>
+
+<!-- FOOTER -->
+<footer>
+  <a href="#" class="f-logo">
+  <img src="img\drevontlogo.png" alt="Drevont logo">
+</a>
+  <p>© 2026 Drevont Stolárstvo. Všetky práva vyhradené.</p>
+  <nav>
+    <ul>
+      <li><a href="#onas">O nás</a></li>
+      <li><a href="#sluzby">Služby</a></li>
+      <li><a href="#galeria">Galéria</a></li>
+      <li><a href="#kontakt">Kontakt</a></li>
+    </ul>
+  </nav>
+</footer>
+
+<script>
+  // Scroll reveal
+  const els = document.querySelectorAll('.reveal');
+  const io = new IntersectionObserver(entries => {
+    entries.forEach(e => { if (e.isIntersecting) { e.target.classList.add('visible'); io.unobserve(e.target); } });
+  }, { threshold: 0.12 });
+  els.forEach(el => io.observe(el));
+
+  // Smooth scroll for anchor links
+  document.querySelectorAll('a[href^="#"]').forEach(a => {
+    a.addEventListener('click', e => {
+      const target = document.querySelector(a.getAttribute('href'));
+      if (target) { e.preventDefault(); target.scrollIntoView({ behavior: 'smooth' }); }
+    });
+  });
+</script>
+</body>
+</html>
