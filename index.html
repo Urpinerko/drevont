@@ -856,13 +856,15 @@ toggle.addEventListener('click', () => {
 });
 
 // LIGHTBOX
-const images = document.querySelectorAll('.gallery-item img');
 const lightbox = document.getElementById('lightbox');
 const lightboxImg = document.getElementById('lightbox-img');
 const closeBtn = document.querySelector('.lightbox .close');
 
-images.forEach(img => {
-  img.addEventListener('click', () => {
+const items = document.querySelectorAll('.gallery-item');
+
+items.forEach(item => {
+  item.addEventListener('click', () => {
+    const img = item.querySelector('img');
     lightbox.style.display = 'flex';
     lightboxImg.src = img.src;
   });
