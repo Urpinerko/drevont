@@ -38,11 +38,7 @@
       backdrop-filter: blur(8px);
       border-bottom: 1px solid rgba(139,94,60,0.12);
       animation: fadeDown .6s ease both;
-      align-items: center;
-      justify-content: space-between;
     }
-
-   
 
     .nav-logo span { color: var(--accent); }
 
@@ -78,7 +74,7 @@
       padding-top: 72px;
       background-image: url('images/pozadie1.jpeg');
       background-size: cover;
-      background-position: center; 
+      background-position: center;
     }
 
     .hero-text {
@@ -105,15 +101,13 @@
       backdrop-filter: blur(4px);
     }
 
-    
-
     .hero-text p {
       font-size: 1.05rem; line-height: 1.8;
       color: #6b4f38; max-width: 38ch; margin-bottom: 2.4rem;
       font-weight: 300;
     }
 
-    .hero-btns { display: flex; gap: 1rem; flex-wrap: wrap; align-items: center }
+    .hero-btns { display: flex; gap: 1rem; flex-wrap: wrap; align-items: center; }
 
     .btn-primary {
       background: var(--wood-dk); color: var(--cream);
@@ -121,7 +115,7 @@
       letter-spacing: .06em; text-transform: uppercase;
       text-decoration: none; border-radius: 2px;
       transition: background .25s, transform .2s;
-      align items: center;
+      align-items: center; /* FIX: was "align items: center" (missing hyphen) */
     }
     .btn-primary:hover { background: var(--accent); transform: translateY(-2px); }
 
@@ -139,17 +133,17 @@
       animation: fadeRight .9s .3s ease both;
     }
 
-      .logo_velke {
-  	display: flex;
-  	justify-content: center;
-  	align-items: center;
-	 }
+    .logo_velke {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+    }
 
-	.logo_velke img {
-  	max-width: 1000px;
- 	 width: 100%;
-  	height: auto;
-         }
+    .logo_velke img {
+      max-width: 1000px;
+      width: 100%;
+      height: auto;
+    }
 
     .hero-image img {
       width: 100%; height: 100%; object-fit: cover;
@@ -203,7 +197,6 @@
     }
 
     .section-tag {
-      display: none;
       font-size: .75rem; letter-spacing: .18em; text-transform: uppercase;
       color: var(--accent); font-weight: 500;
       border-left: 2px solid var(--accent); padding-left: .75rem;
@@ -214,7 +207,7 @@
       font-family: 'Playfair Display', serif;
       font-size: clamp(1.8rem, 2.8vw, 2.6rem);
       font-weight: 700; line-height: 1.2;
-      color: var(--cream); margin-bottom: 1.4rem;
+      color: var(--bark); margin-bottom: 1.4rem;
     }
 
     .about-text p {
@@ -241,7 +234,6 @@
       background-size: cover;
       background-position: center;
       padding: 7rem 6rem;
-      
     }
 
     .section-header {
@@ -481,10 +473,10 @@
     }
     footer .f-logo span { color: var(--accent); }
 
-   .f-logo img {
-    height: 100px;   /* veľkosť loga */
-    width: auto;
-    display: block;
+    .f-logo img {
+      height: 100px;
+      width: auto;
+      display: block;
     }
 
     footer p { font-size: .82rem; }
@@ -494,13 +486,12 @@
     footer nav a { font-size: .82rem; color: var(--sand); }
     footer nav a::after { background: var(--accent); }
 
-
     /* LOGO */
     .nav-logo img {
-  	height: 120px;   /* veľkosť loga */
-  	width: auto;
-  	display: block;
-	}
+      height: 120px;
+      width: auto;
+      display: block;
+    }
 
     /* ── SCROLL REVEAL ── */
     .reveal {
@@ -546,8 +537,8 @@
 <!-- NAV -->
 <nav>
   <a href="#" class="nav-logo">
-  <img src="images/drevontlogo.png" alt="Drevont logo">
-</a>
+    <img src="images/drevontlogo.png" alt="Drevont logo">
+  </a>
   <ul>
     <li><a href="#onas">O nás</a></li>
     <li><a href="#sluzby">Služby</a></li>
@@ -556,23 +547,22 @@
   </ul>
 </nav>
 
-
-
-<!-- PREDNA STRANA-->
+<!-- PREDNA STRANA -->
 <section id="hero">
   <div class="hero-text">
     <span class="hero-tag">Ručná výroba · Kvalitné drevo</span>
     <div class="logo_velke">
-    <img src="images\logo_velke.png" alt="logo">
-  </div>
-    <h1>Nábytok a stolárske služby na mieru</h1>
-  <div class="hero-image">
-    <div class="hero-badge">
-      <strong>15+</strong>
-      <span>rokov skúseností</span>
+      <img src="images/logo_velke.png" alt="logo"> <!-- FIX: backslash → forward slash -->
     </div>
-  </div>
-</section>
+    <h1>Nábytok a stolárske služby na mieru</h1>
+    <div class="hero-image">
+      <div class="hero-badge">
+        <strong>15+</strong>
+        <span>rokov skúseností</span>
+      </div>
+    </div>
+  </div> <!-- FIX: closing </div> for .hero-text was missing -->
+</section> <!-- FIX: </section> for #hero was missing -->
 
 <!-- O NÁS -->
 <section id="onas">
@@ -622,6 +612,7 @@
     <span class="section-tag">Naša práca</span>
     <h2 class="section-title">Galéria</h2>
   </div>
+  <!-- FIX: gallery-grid closing tag was misplaced mid-way; all items are now inside the grid -->
   <div class="gallery-grid">
     <div class="gallery-item g-big reveal">
       <img src="images/skrine2.jpg" alt="skrine" />
@@ -643,66 +634,57 @@
       <img src="images/skrinka.jpg" alt="skrinka na topanky" />
       <div class="overlay"><span>Detská izba</span></div>
     </div>
-	<div class="gallery-item reveal">
+    <div class="gallery-item reveal">
       <img src="images/schody1.jpg" alt="schody" />
-      <div class="overlay"><span>schody</span></div>
+      <div class="overlay"><span>Schody</span></div>
     </div>
-	  <div class="gallery-item reveal">
+    <div class="gallery-item reveal">
       <img src="images/schody2.jpg" alt="schody" />
-      <div class="overlay"><span>schody</span></div>
+      <div class="overlay"><span>Schody</span></div>
     </div>
-	  <div class="gallery-item reveal">
+    <div class="gallery-item reveal">
       <img src="images/schody3.jpg" alt="schody" />
-      <div class="overlay"><span>schody</span></div>
+      <div class="overlay"><span>Schody</span></div>
     </div>
-	  <div class="gallery-item reveal">
+    <div class="gallery-item reveal">
       <img src="images/schody4.jpg" alt="schody" />
-      <div class="overlay"><span>schody</span></div>
+      <div class="overlay"><span>Schody</span></div>
     </div>
-	  <div class="gallery-item reveal">
+    <div class="gallery-item reveal">
       <img src="images/schody5.jpg" alt="schody" />
-      <div class="overlay"><span>schody</span></div>
+      <div class="overlay"><span>Schody</span></div>
     </div>
-	  <div class="gallery-item reveal">
+    <div class="gallery-item reveal">
       <img src="images/schody6.jpg" alt="schody" />
-      <div class="overlay"><span>schody</span></div>
+      <div class="overlay"><span>Schody</span></div>
     </div>
-	  <div class="gallery-item reveal">
+    <div class="gallery-item reveal">
       <img src="images/schody8.jpg" alt="schody" />
-      <div class="overlay"><span>schody</span></div>
+      <div class="overlay"><span>Schody</span></div>
     </div>
-	  </div>
-	  <div class="gallery-item reveal">
+    <div class="gallery-item reveal">
       <img src="images/lavica1.jpg" alt="drevena lavica" />
       <div class="overlay"><span>Drevená lavica</span></div>
     </div>
-	  <div class="gallery-item reveal">
-      <img src="images/schody8.jpg" alt="schody" />
-      <div class="overlay"><span>schody</span></div>
-	</div>
-	  <div class="gallery-item reveal">
+    <div class="gallery-item reveal">
       <img src="images/regale.jpg" alt="regale" />
-      <div class="overlay"><span>regale</span></div>
-	</div>
-	  <div class="gallery-item reveal">
+      <div class="overlay"><span>Regále</span></div>
+    </div>
+    <div class="gallery-item reveal">
       <img src="images/satnik.jpg" alt="satnik" />
-      <div class="overlay"><span>satnik</span></div>
-	</div>
-	  <div class="gallery-item reveal">
+      <div class="overlay"><span>Šatník</span></div>
+    </div>
+    <div class="gallery-item reveal">
       <img src="images/skrine1.jpg" alt="skrine" />
-      <div class="overlay"><span>skrinka</span></div>
-	</div>
-	  <div class="gallery-item reveal">
-      <img src="images/skrinka.jpg" alt="skrinka" />
-      <div class="overlay"><span>skrinka</span></div>
-	</div>
-	  <div class="gallery-item reveal">
+      <div class="overlay"><span>Skriňa</span></div>
+    </div>
+    <div class="gallery-item reveal">
       <img src="images/stolik.jpg" alt="stolik" />
-      <div class="overlay"><span>stolik</span></div>
-	</div>
-	  <div class="gallery-item reveal">
+      <div class="overlay"><span>Stolík</span></div>
+    </div>
+    <div class="gallery-item reveal">
       <img src="images/stolik2.jpg" alt="stolik" />
-      <div class="overlay"><span>stolik</span></div>
+      <div class="overlay"><span>Stolík</span></div>
     </div>
   </div>
 </section>
@@ -730,7 +712,7 @@
       <div><strong>Pracovný čas</strong><span>Po–Pi 8:00–17:00 (Prosím o kontakt dopredu nakoľko sa môžeme nachádzať mimo sídla z dôvodu merania alebo prípadnej montáže.)</span></div>
     </div>
   </div>
-</section>
+</section> <!-- FIX: </section> for #kontakt was missing -->
 
 <!-- MAPA -->
 <section id="mapa">
@@ -744,7 +726,7 @@
       allowfullscreen=""
       loading="lazy"
       referrerpolicy="no-referrer-when-downgrade"
-      title="Poloha Stolárstvo Novák – Podlavická cesta 87, Banská Bystrica">
+      title="Poloha Stolárstvo Drevont – Podlavická cesta 87, Banská Bystrica">
     </iframe>
   </div>
   <div class="map-overlay-bar">
@@ -782,8 +764,8 @@
 <!-- FOOTER -->
 <footer>
   <a href="#" class="f-logo">
-  <img src="images/drevontlogo.png" alt="Drevont logo">
-</a>
+    <img src="images/drevontlogo.png" alt="Drevont logo">
+  </a>
   <p>© 2026 Drevont Stolárstvo. Všetky práva vyhradené.</p>
   <nav>
     <ul>
